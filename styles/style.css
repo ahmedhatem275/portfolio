@@ -1,0 +1,958 @@
+* {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+.loading-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-primary);
+  z-index: 999;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading-overlay img {
+  transition: var(--transition);
+}
+
+::-webkit-scrollbar {
+  width: 0.7rem;
+  height: 100%;
+  background-color: var(--color-grey-4);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary);
+}
+
+::-webkit-scrollbar-button {
+  background-color: var(--color-grey-3);
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 1.2rem;
+}
+
+::-moz-selection {
+  color: var(--color-white);
+  background-color: var(--color-secondary);
+}
+
+::selection {
+  color: var(--color-white);
+  background-color: var(--color-secondary);
+}
+
+.button {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: var(--color-primary);
+  border-radius: 50px;
+  background-color: transparent;
+  border: var(--color-secondary) solid 1.5px;
+  display: flex;
+  align-items: center;
+}
+.button:hover .button-text {
+  color: white;
+}
+.button .button-text {
+  color: var(--color-white);
+  font-weight: bold;
+  margin: 0 1.3rem 0 0.5rem;
+  z-index: 2;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.button .button-icon {
+  font-size: 1.6rem;
+  color: white;
+  background-color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0.7rem;
+  margin: -1.3px 0.4rem -1.3px -1.3px;
+  z-index: 2;
+}
+.button::before {
+  content: "";
+  position: absolute;
+  top: -0.5px;
+  left: 0;
+  width: 1%;
+  transform: translateX(0);
+  transition: var(--transition);
+  z-index: 1;
+  background-color: transparent;
+  border-radius: 50px;
+}
+.button:hover::before {
+  transform: translateX(0);
+  width: 101%;
+  height: 103%;
+  top: -0.5px;
+  transition: var(--transition);
+  background-color: var(--color-secondary);
+  border-radius: 50px;
+  z-index: 1;
+}
+
+.main-sec-title {
+  position: relative;
+  margin-top: 4rem;
+  cursor: default;
+}
+.main-sec-title .sec-title {
+  color: var(--color-white);
+  font-weight: bolder;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 4rem;
+  display: flex;
+}
+.main-sec-title .sec-title span {
+  color: var(--color-secondary);
+  margin-left: 1rem;
+}
+.main-sec-title .sec-title2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6rem;
+  z-index: -1;
+  font-weight: 900;
+  text-align: center;
+  color: var(--color-grey-5);
+  line-height: 8rem;
+}
+
+#particles-js {
+  background-color: transparent;
+  position: fixed;
+  width: 98%;
+  height: 98%;
+  top: 0;
+  left: 0;
+}
+
+.breif {
+  text-align: justify;
+  line-height: 2rem;
+}
+.breif span {
+  font-size: 2.7rem;
+  color: var(--color-secondary);
+  font-weight: bold;
+  margin-right: 0.1rem;
+}
+
+.break-line {
+  width: 30vw;
+  height: 1px;
+  background-color: var(--color-grey-5);
+  margin: 5rem 0 5rem 50%;
+  transform: translateX(-50%);
+}
+
+:root {
+  --color-primary: #191d2b;
+  --color-secondary: rgb(19,85,248);
+  --color-secondary-tr: rgba(19, 85, 248,.9);
+  --color-white: #FFFFFF;
+  --color-black: #000;
+  --color-grey0: #f8f8f8;
+  --color-grey-1: #dbe1e8;
+  --color-grey-2: #b2becd;
+  --color-grey-3: #6c7983;
+  --color-grey-4: #454e56;
+  --color-grey-5: #2a2e35;
+  --color-grey-6: #12181b;
+  --br-sm-2: 10px;
+  --box-shadow-1: 0 3px 15px rgba(0, 0, 0, 0.2);
+  --box-shadow-2: 0 3px 15px rgba(0, 0, 0, 0.4);
+  --transition: all .4s ease-in-out;
+  --font-primary: "poppins", sans-serif;
+  --font-secondary: "Righteous", cursive;
+}
+
+.light-mode {
+  --color-primary: #FFFFFF;
+  --color-secondary: rgb(244,9,49);
+  --color-secondary-tr: rgba(244,9,49,.9);
+  --color-white: #454e56;
+  --color-black: #000;
+  --color-grey0: #f8f8f8;
+  --color-grey-1: #6c7983;
+  --color-grey-2: #454a4e;
+  --color-grey-3: #6c7983;
+  --color-grey-4: #454e56;
+  --color-grey-5: #b2bac1;
+  --color-grey-6: #12181b;
+}
+
+.section {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  transform: translateX(-100%) scale(0);
+  transition: var(--transition);
+}
+
+.sec1, .sec2, .sec3, .sec4, .sec5, .sec6 {
+  display: none;
+  transform: translateX(0) scale(1);
+}
+
+.active {
+  display: block;
+  -webkit-animation: pages 1s ease-in-out;
+          animation: pages 1s ease-in-out;
+}
+@-webkit-keyframes pages {
+  0% {
+    transform: translateX(-100%) scaleX(0);
+  }
+  100% {
+    transform: translateX(0) scaleX(1);
+  }
+}
+@keyframes pages {
+  0% {
+    transform: translateX(-100%) scaleX(0);
+  }
+  100% {
+    transform: translateX(0) scaleX(1);
+  }
+}
+
+.controls {
+  position: fixed;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.controls .control {
+  padding: 0.2rem;
+  background-color: var(--color-grey-4);
+  border-radius: 50%;
+  margin: 0.7rem 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: var(--box-shadow-1);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.controls .control:hover {
+  box-shadow: var(--box-shadow-2);
+  transform: translateY(-0.2rem);
+}
+.controls .active-btn {
+  background-color: var(--color-secondary);
+  transition: var(--transition);
+}
+
+.theme-button {
+  position: fixed;
+  right: 3.83%;
+  top: 10%;
+  transform: translateY(-50%);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.theme-button i {
+  padding: 0.2rem;
+  background-color: var(--color-grey-4);
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 1.8rem;
+  color: white;
+  box-shadow: var(--box-shadow-1);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.theme-button i:hover {
+  box-shadow: var(--box-shadow-2);
+  transform: translateY(-0.2rem);
+}
+
+.home-content .left-content {
+  display: flex;
+  position: relative;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.home-content .left-content .back {
+  background-color: var(--color-secondary);
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-clip-path: polygon(64% 0, 100% 100%, 75% 100%, 50% 25%, 25% 100%, 0 100%, 33% 0);
+          clip-path: polygon(64% 0, 100% 100%, 75% 100%, 50% 25%, 25% 100%, 0 100%, 33% 0);
+  width: 79%;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.home-content .left-content img {
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 95%;
+  top: 1.5rem;
+  border-radius: var(--br-sm-2);
+  transition: var(--transition);
+  filter: grayscale(100%);
+}
+.home-content .left-content img:hover {
+  filter: grayscale(0);
+}
+.home-content .right-content {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 7rem 15rem 10rem 0;
+  height: 100vh;
+}
+.home-content .right-content .name {
+  font-family: var(--font-primary);
+  font-weight: 800;
+}
+.home-content .right-content .name .first-line, .home-content .right-content .name .third-line {
+  font-size: 2.4rem;
+}
+.home-content .right-content .name .second-line {
+  color: var(--color-secondary);
+  font-size: 4rem;
+}
+.home-content .right-content .breif {
+  margin: 1rem 0;
+}
+
+.about .about-content {
+  width: 100%;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+.about .about-content .left-content {
+  margin-bottom: 2rem;
+}
+.about .about-content .left-content .title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: var(--font-tertiary);
+}
+.about .about-content .right-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+.about .about-content .right-content .item {
+  background-color: var(--color-primary);
+  padding: 3rem 4rem 3rem 3rem;
+  border: var(--color-grey-5) solid 1.5px;
+  border-radius: var(--br-sm-2);
+  box-shadow: var(--box-shadow-1);
+  transition: var(--transition);
+  position: relative;
+}
+.about .about-content .right-content .item .large-text {
+  font-weight: bold;
+  font-size: 3rem;
+  position: relative;
+  color: var(--color-secondary);
+}
+.about .about-content .right-content .item .large-text::before {
+  content: "";
+  width: 3px;
+  height: 3.7rem;
+  background-color: var(--color-secondary);
+  position: absolute;
+  left: -1rem;
+  top: 0.4rem;
+}
+.about .about-content .right-content .item .small-text {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.about .about-content .right-content .item:hover {
+  border-color: var(--color-secondary);
+  transform: translateY(-0.5rem);
+  cursor: default;
+  box-shadow: var(--box-shadow-2);
+}
+.about .stats-sec {
+  margin-bottom: 5rem;
+}
+.about .stats-sec .stats-title {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: bold;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-bottom: 1rem;
+}
+.about .stats-sec .stats-title span {
+  color: var(--color-secondary);
+}
+.about .stats-sec .stats-content .bar {
+  margin-top: 2rem;
+}
+.about .stats-sec .stats-content .bar .bar-text, .about .stats-sec .stats-content .bar .mini-bar-text {
+  display: flex;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.about .stats-sec .stats-content .bar .bar-text .bar-percent, .about .stats-sec .stats-content .bar .bar-text .mini-bar-percent, .about .stats-sec .stats-content .bar .mini-bar-text .bar-percent, .about .stats-sec .stats-content .bar .mini-bar-text .mini-bar-percent {
+  position: absolute;
+  right: 0;
+  color: var(--color-grey-2);
+}
+.about .stats-sec .stats-content .bar .bar-container, .about .stats-sec .stats-content .bar .mini-bar-container {
+  margin-top: 0.4rem;
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-grey-2);
+  border-radius: 2px;
+  position: relative;
+}
+.about .stats-sec .stats-content .bar .bar-container .leadership, .about .stats-sec .stats-content .bar .mini-bar-container .leadership {
+  width: 90%;
+}
+.about .stats-sec .stats-content .bar .bar-container .problem-solving, .about .stats-sec .stats-content .bar .mini-bar-container .problem-solving {
+  width: 85%;
+}
+.about .stats-sec .stats-content .bar .bar-container .front-end, .about .stats-sec .stats-content .bar .mini-bar-container .front-end {
+  width: 91%;
+}
+.about .stats-sec .stats-content .bar .bar-container .graphic-design, .about .stats-sec .stats-content .bar .mini-bar-container .graphic-design {
+  width: 89%;
+}
+.about .stats-sec .stats-content .bar .bar-container .bar-value, .about .stats-sec .stats-content .bar .bar-container .mini-bar-value, .about .stats-sec .stats-content .bar .mini-bar-container .bar-value, .about .stats-sec .stats-content .bar .mini-bar-container .mini-bar-value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--color-secondary);
+  border-radius: 2px;
+}
+.about .stats-sec .stats-content .bar .large-bar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  margin-top: 1rem;
+}
+.about .stats-sec .stats-content .bar .large-bar .mini-bar {
+  margin-top: 0.5rem;
+}
+.about .stats-sec .stats-content .bar .large-bar .mini-bar .mini-bar-text {
+  font-weight: 500;
+  font-size: 1rem;
+}
+.about .stats-sec .stats-content .bar .large-bar .mini-bar .mini-bar-container {
+  height: 6px;
+  margin-top: 0.2rem;
+  border-radius: 1.5px;
+}
+.about .stats-sec .stats-content .bar .large-bar .mini-bar .mini-bar-container .html {
+  width: 97%;
+}
+.about .stats-sec .stats-content .bar .large-bar .mini-bar .mini-bar-container .css {
+  width: 94%;
+}
+.about .stats-sec .stats-content .bar .large-bar .mini-bar .mini-bar-container .js {
+  width: 84%;
+}
+.about .stats-sec .stats-content .bar .large-bar .mini-bar .mini-bar-container .bootstrap {
+  width: 95%;
+}
+.about .stats-sec .stats-content .bar .large-bar .mini-bar .mini-bar-container .sass {
+  width: 85%;
+}
+.about .stats-sec .stats-content .bar .large-bar .mini-bar .mini-bar-container .illustrator {
+  width: 94%;
+}
+.about .stats-sec .stats-content .bar .large-bar .mini-bar .mini-bar-container .photoshop {
+  width: 90%;
+}
+.about .stats-sec .stats-content .bar .large-bar .mini-bar .mini-bar-container .canva {
+  width: 88%;
+}
+.about .stats-sec .stats-content .bar .large-bar .mini-bar .mini-bar-container .xd {
+  width: 85%;
+}
+.about .stats-sec .stats-content .bar .large-bar .mini-bar .mini-bar-value {
+  border-radius: 1.5px;
+}
+
+.academics .academics-content .top-content {
+  margin-top: 3.5rem;
+}
+.academics .academics-content .bottom-content {
+  margin: 4rem 0 5rem 0;
+}
+.academics .academics-content .bottom-content .school {
+  border: var(--color-grey-4) 1px solid;
+  border-bottom: none;
+  padding: 3rem 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--br-sm-2);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-top: 4rem;
+  transition: var(--transition);
+  background-color: var(--color-primary);
+}
+.academics .academics-content .bottom-content .school:hover {
+  border-color: var(--color-secondary);
+  transform: translateY(-0.5rem);
+  cursor: default;
+  box-shadow: var(--box-shadow-2);
+}
+.academics .academics-content .bottom-content .school .icon {
+  padding: 0.2rem;
+  background-color: var(--color-secondary);
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 1.9rem;
+  color: white;
+  box-shadow: var(--box-shadow-1);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -2rem;
+}
+.academics .academics-content .bottom-content .school .duration-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.academics .academics-content .bottom-content .school .duration-container .duration {
+  background-color: var(--color-grey-5);
+  color: var(--color-grey-2);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  margin: 0.7rem 0.2rem;
+  font-weight: bold;
+}
+.academics .academics-content .bottom-content .school .school-title {
+  color: var(--color-white);
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+.academics .academics-content .bottom-content .school .school-title span {
+  color: var(--color-secondary);
+}
+.academics .academics-content .bottom-content .school p {
+  text-align: justify;
+}
+.academics .academics-content .bottom-content .school a {
+  text-decoration: none;
+  align-self: flex-end;
+}
+.academics .academics-content .bottom-content .school a .button {
+  font-size: 1.1rem;
+}
+.academics .academics-content .bottom-content .school a:hover::before {
+  top: -0.6px;
+}
+.academics .academics-content .bottom-content .school a .button-text {
+  margin-right: 0.8rem;
+}
+.academics .academics-content .bottom-content .school a .button-icon {
+  font-size: 1.5rem;
+}
+
+.activities .activities-sec .programs-title, .activities .activities-sec .teams-title, .activities .activities-sec .clubs-title, .activities .activities-sec .ambassadors-title {
+  transform: translateX(-50%);
+  font-size: 1.7rem;
+  font-weight: bold;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 8rem 0 2rem 50%;
+}
+.activities .activities-sec .programs-title span, .activities .activities-sec .teams-title span, .activities .activities-sec .clubs-title span, .activities .activities-sec .ambassadors-title span {
+  color: var(--color-secondary);
+}
+.activities .activities-sec .teams-title, .activities .activities-sec .clubs-title, .activities .activities-sec .ambassadors-title {
+  margin-top: 0;
+}
+.activities .activities-sec .activities-content {
+  margin-bottom: 3rem;
+}
+.activities .activities-sec .activities-content .break-line {
+  margin-bottom: 3rem;
+}
+.activities .activities-sec .activities-content .first-part .programs, .activities .activities-sec .activities-content .first-part .teams, .activities .activities-sec .activities-content .first-part .clubs, .activities .activities-sec .activities-content .first-part .ambassadors, .activities .activities-sec .activities-content .second-part .programs, .activities .activities-sec .activities-content .second-part .teams, .activities .activities-sec .activities-content .second-part .clubs, .activities .activities-sec .activities-content .second-part .ambassadors, .activities .activities-sec .activities-content .third-part .programs, .activities .activities-sec .activities-content .third-part .teams, .activities .activities-sec .activities-content .third-part .clubs, .activities .activities-sec .activities-content .third-part .ambassadors, .activities .activities-sec .activities-content .fourth-part .programs, .activities .activities-sec .activities-content .fourth-part .teams, .activities .activities-sec .activities-content .fourth-part .clubs, .activities .activities-sec .activities-content .fourth-part .ambassadors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}
+.activities .activities-sec .activities-content .first-part .programs .program, .activities .activities-sec .activities-content .first-part .programs .team, .activities .activities-sec .activities-content .first-part .programs .club, .activities .activities-sec .activities-content .first-part .programs .ambassador, .activities .activities-sec .activities-content .first-part .teams .program, .activities .activities-sec .activities-content .first-part .teams .team, .activities .activities-sec .activities-content .first-part .teams .club, .activities .activities-sec .activities-content .first-part .teams .ambassador, .activities .activities-sec .activities-content .first-part .clubs .program, .activities .activities-sec .activities-content .first-part .clubs .team, .activities .activities-sec .activities-content .first-part .clubs .club, .activities .activities-sec .activities-content .first-part .clubs .ambassador, .activities .activities-sec .activities-content .first-part .ambassadors .program, .activities .activities-sec .activities-content .first-part .ambassadors .team, .activities .activities-sec .activities-content .first-part .ambassadors .club, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador, .activities .activities-sec .activities-content .second-part .programs .program, .activities .activities-sec .activities-content .second-part .programs .team, .activities .activities-sec .activities-content .second-part .programs .club, .activities .activities-sec .activities-content .second-part .programs .ambassador, .activities .activities-sec .activities-content .second-part .teams .program, .activities .activities-sec .activities-content .second-part .teams .team, .activities .activities-sec .activities-content .second-part .teams .club, .activities .activities-sec .activities-content .second-part .teams .ambassador, .activities .activities-sec .activities-content .second-part .clubs .program, .activities .activities-sec .activities-content .second-part .clubs .team, .activities .activities-sec .activities-content .second-part .clubs .club, .activities .activities-sec .activities-content .second-part .clubs .ambassador, .activities .activities-sec .activities-content .second-part .ambassadors .program, .activities .activities-sec .activities-content .second-part .ambassadors .team, .activities .activities-sec .activities-content .second-part .ambassadors .club, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador, .activities .activities-sec .activities-content .third-part .programs .program, .activities .activities-sec .activities-content .third-part .programs .team, .activities .activities-sec .activities-content .third-part .programs .club, .activities .activities-sec .activities-content .third-part .programs .ambassador, .activities .activities-sec .activities-content .third-part .teams .program, .activities .activities-sec .activities-content .third-part .teams .team, .activities .activities-sec .activities-content .third-part .teams .club, .activities .activities-sec .activities-content .third-part .teams .ambassador, .activities .activities-sec .activities-content .third-part .clubs .program, .activities .activities-sec .activities-content .third-part .clubs .team, .activities .activities-sec .activities-content .third-part .clubs .club, .activities .activities-sec .activities-content .third-part .clubs .ambassador, .activities .activities-sec .activities-content .third-part .ambassadors .program, .activities .activities-sec .activities-content .third-part .ambassadors .team, .activities .activities-sec .activities-content .third-part .ambassadors .club, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador, .activities .activities-sec .activities-content .fourth-part .programs .program, .activities .activities-sec .activities-content .fourth-part .programs .team, .activities .activities-sec .activities-content .fourth-part .programs .club, .activities .activities-sec .activities-content .fourth-part .programs .ambassador, .activities .activities-sec .activities-content .fourth-part .teams .program, .activities .activities-sec .activities-content .fourth-part .teams .team, .activities .activities-sec .activities-content .fourth-part .teams .club, .activities .activities-sec .activities-content .fourth-part .teams .ambassador, .activities .activities-sec .activities-content .fourth-part .clubs .program, .activities .activities-sec .activities-content .fourth-part .clubs .team, .activities .activities-sec .activities-content .fourth-part .clubs .club, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador, .activities .activities-sec .activities-content .fourth-part .ambassadors .program, .activities .activities-sec .activities-content .fourth-part .ambassadors .team, .activities .activities-sec .activities-content .fourth-part .ambassadors .club, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador {
+  background-color: var(--color-grey-5);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--box-shadow-1);
+  transition: var(--transition);
+  border-radius: 8px;
+}
+.activities .activities-sec .activities-content .first-part .programs .program:hover, .activities .activities-sec .activities-content .first-part .programs .team:hover, .activities .activities-sec .activities-content .first-part .programs .club:hover, .activities .activities-sec .activities-content .first-part .programs .ambassador:hover, .activities .activities-sec .activities-content .first-part .teams .program:hover, .activities .activities-sec .activities-content .first-part .teams .team:hover, .activities .activities-sec .activities-content .first-part .teams .club:hover, .activities .activities-sec .activities-content .first-part .teams .ambassador:hover, .activities .activities-sec .activities-content .first-part .clubs .program:hover, .activities .activities-sec .activities-content .first-part .clubs .team:hover, .activities .activities-sec .activities-content .first-part .clubs .club:hover, .activities .activities-sec .activities-content .first-part .clubs .ambassador:hover, .activities .activities-sec .activities-content .first-part .ambassadors .program:hover, .activities .activities-sec .activities-content .first-part .ambassadors .team:hover, .activities .activities-sec .activities-content .first-part .ambassadors .club:hover, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador:hover, .activities .activities-sec .activities-content .second-part .programs .program:hover, .activities .activities-sec .activities-content .second-part .programs .team:hover, .activities .activities-sec .activities-content .second-part .programs .club:hover, .activities .activities-sec .activities-content .second-part .programs .ambassador:hover, .activities .activities-sec .activities-content .second-part .teams .program:hover, .activities .activities-sec .activities-content .second-part .teams .team:hover, .activities .activities-sec .activities-content .second-part .teams .club:hover, .activities .activities-sec .activities-content .second-part .teams .ambassador:hover, .activities .activities-sec .activities-content .second-part .clubs .program:hover, .activities .activities-sec .activities-content .second-part .clubs .team:hover, .activities .activities-sec .activities-content .second-part .clubs .club:hover, .activities .activities-sec .activities-content .second-part .clubs .ambassador:hover, .activities .activities-sec .activities-content .second-part .ambassadors .program:hover, .activities .activities-sec .activities-content .second-part .ambassadors .team:hover, .activities .activities-sec .activities-content .second-part .ambassadors .club:hover, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador:hover, .activities .activities-sec .activities-content .third-part .programs .program:hover, .activities .activities-sec .activities-content .third-part .programs .team:hover, .activities .activities-sec .activities-content .third-part .programs .club:hover, .activities .activities-sec .activities-content .third-part .programs .ambassador:hover, .activities .activities-sec .activities-content .third-part .teams .program:hover, .activities .activities-sec .activities-content .third-part .teams .team:hover, .activities .activities-sec .activities-content .third-part .teams .club:hover, .activities .activities-sec .activities-content .third-part .teams .ambassador:hover, .activities .activities-sec .activities-content .third-part .clubs .program:hover, .activities .activities-sec .activities-content .third-part .clubs .team:hover, .activities .activities-sec .activities-content .third-part .clubs .club:hover, .activities .activities-sec .activities-content .third-part .clubs .ambassador:hover, .activities .activities-sec .activities-content .third-part .ambassadors .program:hover, .activities .activities-sec .activities-content .third-part .ambassadors .team:hover, .activities .activities-sec .activities-content .third-part .ambassadors .club:hover, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador:hover, .activities .activities-sec .activities-content .fourth-part .programs .program:hover, .activities .activities-sec .activities-content .fourth-part .programs .team:hover, .activities .activities-sec .activities-content .fourth-part .programs .club:hover, .activities .activities-sec .activities-content .fourth-part .programs .ambassador:hover, .activities .activities-sec .activities-content .fourth-part .teams .program:hover, .activities .activities-sec .activities-content .fourth-part .teams .team:hover, .activities .activities-sec .activities-content .fourth-part .teams .club:hover, .activities .activities-sec .activities-content .fourth-part .teams .ambassador:hover, .activities .activities-sec .activities-content .fourth-part .clubs .program:hover, .activities .activities-sec .activities-content .fourth-part .clubs .team:hover, .activities .activities-sec .activities-content .fourth-part .clubs .club:hover, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .program:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .team:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .club:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador:hover {
+  box-shadow: var(--box-shadow-2);
+  transform: translateY(-0.5rem);
+}
+.activities .activities-sec .activities-content .first-part .programs .program img, .activities .activities-sec .activities-content .first-part .programs .team img, .activities .activities-sec .activities-content .first-part .programs .club img, .activities .activities-sec .activities-content .first-part .programs .ambassador img, .activities .activities-sec .activities-content .first-part .teams .program img, .activities .activities-sec .activities-content .first-part .teams .team img, .activities .activities-sec .activities-content .first-part .teams .club img, .activities .activities-sec .activities-content .first-part .teams .ambassador img, .activities .activities-sec .activities-content .first-part .clubs .program img, .activities .activities-sec .activities-content .first-part .clubs .team img, .activities .activities-sec .activities-content .first-part .clubs .club img, .activities .activities-sec .activities-content .first-part .clubs .ambassador img, .activities .activities-sec .activities-content .first-part .ambassadors .program img, .activities .activities-sec .activities-content .first-part .ambassadors .team img, .activities .activities-sec .activities-content .first-part .ambassadors .club img, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador img, .activities .activities-sec .activities-content .second-part .programs .program img, .activities .activities-sec .activities-content .second-part .programs .team img, .activities .activities-sec .activities-content .second-part .programs .club img, .activities .activities-sec .activities-content .second-part .programs .ambassador img, .activities .activities-sec .activities-content .second-part .teams .program img, .activities .activities-sec .activities-content .second-part .teams .team img, .activities .activities-sec .activities-content .second-part .teams .club img, .activities .activities-sec .activities-content .second-part .teams .ambassador img, .activities .activities-sec .activities-content .second-part .clubs .program img, .activities .activities-sec .activities-content .second-part .clubs .team img, .activities .activities-sec .activities-content .second-part .clubs .club img, .activities .activities-sec .activities-content .second-part .clubs .ambassador img, .activities .activities-sec .activities-content .second-part .ambassadors .program img, .activities .activities-sec .activities-content .second-part .ambassadors .team img, .activities .activities-sec .activities-content .second-part .ambassadors .club img, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador img, .activities .activities-sec .activities-content .third-part .programs .program img, .activities .activities-sec .activities-content .third-part .programs .team img, .activities .activities-sec .activities-content .third-part .programs .club img, .activities .activities-sec .activities-content .third-part .programs .ambassador img, .activities .activities-sec .activities-content .third-part .teams .program img, .activities .activities-sec .activities-content .third-part .teams .team img, .activities .activities-sec .activities-content .third-part .teams .club img, .activities .activities-sec .activities-content .third-part .teams .ambassador img, .activities .activities-sec .activities-content .third-part .clubs .program img, .activities .activities-sec .activities-content .third-part .clubs .team img, .activities .activities-sec .activities-content .third-part .clubs .club img, .activities .activities-sec .activities-content .third-part .clubs .ambassador img, .activities .activities-sec .activities-content .third-part .ambassadors .program img, .activities .activities-sec .activities-content .third-part .ambassadors .team img, .activities .activities-sec .activities-content .third-part .ambassadors .club img, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador img, .activities .activities-sec .activities-content .fourth-part .programs .program img, .activities .activities-sec .activities-content .fourth-part .programs .team img, .activities .activities-sec .activities-content .fourth-part .programs .club img, .activities .activities-sec .activities-content .fourth-part .programs .ambassador img, .activities .activities-sec .activities-content .fourth-part .teams .program img, .activities .activities-sec .activities-content .fourth-part .teams .team img, .activities .activities-sec .activities-content .fourth-part .teams .club img, .activities .activities-sec .activities-content .fourth-part .teams .ambassador img, .activities .activities-sec .activities-content .fourth-part .clubs .program img, .activities .activities-sec .activities-content .fourth-part .clubs .team img, .activities .activities-sec .activities-content .fourth-part .clubs .club img, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador img, .activities .activities-sec .activities-content .fourth-part .ambassadors .program img, .activities .activities-sec .activities-content .fourth-part .ambassadors .team img, .activities .activities-sec .activities-content .fourth-part .ambassadors .club img, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador img {
+  width: 100%;
+  border-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: var(--transition);
+  filter: grayscale(100%);
+}
+.activities .activities-sec .activities-content .first-part .programs .program img:hover, .activities .activities-sec .activities-content .first-part .programs .team img:hover, .activities .activities-sec .activities-content .first-part .programs .club img:hover, .activities .activities-sec .activities-content .first-part .programs .ambassador img:hover, .activities .activities-sec .activities-content .first-part .teams .program img:hover, .activities .activities-sec .activities-content .first-part .teams .team img:hover, .activities .activities-sec .activities-content .first-part .teams .club img:hover, .activities .activities-sec .activities-content .first-part .teams .ambassador img:hover, .activities .activities-sec .activities-content .first-part .clubs .program img:hover, .activities .activities-sec .activities-content .first-part .clubs .team img:hover, .activities .activities-sec .activities-content .first-part .clubs .club img:hover, .activities .activities-sec .activities-content .first-part .clubs .ambassador img:hover, .activities .activities-sec .activities-content .first-part .ambassadors .program img:hover, .activities .activities-sec .activities-content .first-part .ambassadors .team img:hover, .activities .activities-sec .activities-content .first-part .ambassadors .club img:hover, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador img:hover, .activities .activities-sec .activities-content .second-part .programs .program img:hover, .activities .activities-sec .activities-content .second-part .programs .team img:hover, .activities .activities-sec .activities-content .second-part .programs .club img:hover, .activities .activities-sec .activities-content .second-part .programs .ambassador img:hover, .activities .activities-sec .activities-content .second-part .teams .program img:hover, .activities .activities-sec .activities-content .second-part .teams .team img:hover, .activities .activities-sec .activities-content .second-part .teams .club img:hover, .activities .activities-sec .activities-content .second-part .teams .ambassador img:hover, .activities .activities-sec .activities-content .second-part .clubs .program img:hover, .activities .activities-sec .activities-content .second-part .clubs .team img:hover, .activities .activities-sec .activities-content .second-part .clubs .club img:hover, .activities .activities-sec .activities-content .second-part .clubs .ambassador img:hover, .activities .activities-sec .activities-content .second-part .ambassadors .program img:hover, .activities .activities-sec .activities-content .second-part .ambassadors .team img:hover, .activities .activities-sec .activities-content .second-part .ambassadors .club img:hover, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador img:hover, .activities .activities-sec .activities-content .third-part .programs .program img:hover, .activities .activities-sec .activities-content .third-part .programs .team img:hover, .activities .activities-sec .activities-content .third-part .programs .club img:hover, .activities .activities-sec .activities-content .third-part .programs .ambassador img:hover, .activities .activities-sec .activities-content .third-part .teams .program img:hover, .activities .activities-sec .activities-content .third-part .teams .team img:hover, .activities .activities-sec .activities-content .third-part .teams .club img:hover, .activities .activities-sec .activities-content .third-part .teams .ambassador img:hover, .activities .activities-sec .activities-content .third-part .clubs .program img:hover, .activities .activities-sec .activities-content .third-part .clubs .team img:hover, .activities .activities-sec .activities-content .third-part .clubs .club img:hover, .activities .activities-sec .activities-content .third-part .clubs .ambassador img:hover, .activities .activities-sec .activities-content .third-part .ambassadors .program img:hover, .activities .activities-sec .activities-content .third-part .ambassadors .team img:hover, .activities .activities-sec .activities-content .third-part .ambassadors .club img:hover, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador img:hover, .activities .activities-sec .activities-content .fourth-part .programs .program img:hover, .activities .activities-sec .activities-content .fourth-part .programs .team img:hover, .activities .activities-sec .activities-content .fourth-part .programs .club img:hover, .activities .activities-sec .activities-content .fourth-part .programs .ambassador img:hover, .activities .activities-sec .activities-content .fourth-part .teams .program img:hover, .activities .activities-sec .activities-content .fourth-part .teams .team img:hover, .activities .activities-sec .activities-content .fourth-part .teams .club img:hover, .activities .activities-sec .activities-content .fourth-part .teams .ambassador img:hover, .activities .activities-sec .activities-content .fourth-part .clubs .program img:hover, .activities .activities-sec .activities-content .fourth-part .clubs .team img:hover, .activities .activities-sec .activities-content .fourth-part .clubs .club img:hover, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador img:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .program img:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .team img:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .club img:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador img:hover {
+  transform: scale(1.06);
+  box-shadow: var(--box-shadow-2);
+  filter: grayscale(0);
+}
+.activities .activities-sec .activities-content .first-part .programs .program .program-text, .activities .activities-sec .activities-content .first-part .programs .program .team-text, .activities .activities-sec .activities-content .first-part .programs .program .club-text, .activities .activities-sec .activities-content .first-part .programs .program .ambassador-text, .activities .activities-sec .activities-content .first-part .programs .team .program-text, .activities .activities-sec .activities-content .first-part .programs .team .team-text, .activities .activities-sec .activities-content .first-part .programs .team .club-text, .activities .activities-sec .activities-content .first-part .programs .team .ambassador-text, .activities .activities-sec .activities-content .first-part .programs .club .program-text, .activities .activities-sec .activities-content .first-part .programs .club .team-text, .activities .activities-sec .activities-content .first-part .programs .club .club-text, .activities .activities-sec .activities-content .first-part .programs .club .ambassador-text, .activities .activities-sec .activities-content .first-part .programs .ambassador .program-text, .activities .activities-sec .activities-content .first-part .programs .ambassador .team-text, .activities .activities-sec .activities-content .first-part .programs .ambassador .club-text, .activities .activities-sec .activities-content .first-part .programs .ambassador .ambassador-text, .activities .activities-sec .activities-content .first-part .teams .program .program-text, .activities .activities-sec .activities-content .first-part .teams .program .team-text, .activities .activities-sec .activities-content .first-part .teams .program .club-text, .activities .activities-sec .activities-content .first-part .teams .program .ambassador-text, .activities .activities-sec .activities-content .first-part .teams .team .program-text, .activities .activities-sec .activities-content .first-part .teams .team .team-text, .activities .activities-sec .activities-content .first-part .teams .team .club-text, .activities .activities-sec .activities-content .first-part .teams .team .ambassador-text, .activities .activities-sec .activities-content .first-part .teams .club .program-text, .activities .activities-sec .activities-content .first-part .teams .club .team-text, .activities .activities-sec .activities-content .first-part .teams .club .club-text, .activities .activities-sec .activities-content .first-part .teams .club .ambassador-text, .activities .activities-sec .activities-content .first-part .teams .ambassador .program-text, .activities .activities-sec .activities-content .first-part .teams .ambassador .team-text, .activities .activities-sec .activities-content .first-part .teams .ambassador .club-text, .activities .activities-sec .activities-content .first-part .teams .ambassador .ambassador-text, .activities .activities-sec .activities-content .first-part .clubs .program .program-text, .activities .activities-sec .activities-content .first-part .clubs .program .team-text, .activities .activities-sec .activities-content .first-part .clubs .program .club-text, .activities .activities-sec .activities-content .first-part .clubs .program .ambassador-text, .activities .activities-sec .activities-content .first-part .clubs .team .program-text, .activities .activities-sec .activities-content .first-part .clubs .team .team-text, .activities .activities-sec .activities-content .first-part .clubs .team .club-text, .activities .activities-sec .activities-content .first-part .clubs .team .ambassador-text, .activities .activities-sec .activities-content .first-part .clubs .club .program-text, .activities .activities-sec .activities-content .first-part .clubs .club .team-text, .activities .activities-sec .activities-content .first-part .clubs .club .club-text, .activities .activities-sec .activities-content .first-part .clubs .club .ambassador-text, .activities .activities-sec .activities-content .first-part .clubs .ambassador .program-text, .activities .activities-sec .activities-content .first-part .clubs .ambassador .team-text, .activities .activities-sec .activities-content .first-part .clubs .ambassador .club-text, .activities .activities-sec .activities-content .first-part .clubs .ambassador .ambassador-text, .activities .activities-sec .activities-content .first-part .ambassadors .program .program-text, .activities .activities-sec .activities-content .first-part .ambassadors .program .team-text, .activities .activities-sec .activities-content .first-part .ambassadors .program .club-text, .activities .activities-sec .activities-content .first-part .ambassadors .program .ambassador-text, .activities .activities-sec .activities-content .first-part .ambassadors .team .program-text, .activities .activities-sec .activities-content .first-part .ambassadors .team .team-text, .activities .activities-sec .activities-content .first-part .ambassadors .team .club-text, .activities .activities-sec .activities-content .first-part .ambassadors .team .ambassador-text, .activities .activities-sec .activities-content .first-part .ambassadors .club .program-text, .activities .activities-sec .activities-content .first-part .ambassadors .club .team-text, .activities .activities-sec .activities-content .first-part .ambassadors .club .club-text, .activities .activities-sec .activities-content .first-part .ambassadors .club .ambassador-text, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .program-text, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .team-text, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .club-text, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .ambassador-text, .activities .activities-sec .activities-content .second-part .programs .program .program-text, .activities .activities-sec .activities-content .second-part .programs .program .team-text, .activities .activities-sec .activities-content .second-part .programs .program .club-text, .activities .activities-sec .activities-content .second-part .programs .program .ambassador-text, .activities .activities-sec .activities-content .second-part .programs .team .program-text, .activities .activities-sec .activities-content .second-part .programs .team .team-text, .activities .activities-sec .activities-content .second-part .programs .team .club-text, .activities .activities-sec .activities-content .second-part .programs .team .ambassador-text, .activities .activities-sec .activities-content .second-part .programs .club .program-text, .activities .activities-sec .activities-content .second-part .programs .club .team-text, .activities .activities-sec .activities-content .second-part .programs .club .club-text, .activities .activities-sec .activities-content .second-part .programs .club .ambassador-text, .activities .activities-sec .activities-content .second-part .programs .ambassador .program-text, .activities .activities-sec .activities-content .second-part .programs .ambassador .team-text, .activities .activities-sec .activities-content .second-part .programs .ambassador .club-text, .activities .activities-sec .activities-content .second-part .programs .ambassador .ambassador-text, .activities .activities-sec .activities-content .second-part .teams .program .program-text, .activities .activities-sec .activities-content .second-part .teams .program .team-text, .activities .activities-sec .activities-content .second-part .teams .program .club-text, .activities .activities-sec .activities-content .second-part .teams .program .ambassador-text, .activities .activities-sec .activities-content .second-part .teams .team .program-text, .activities .activities-sec .activities-content .second-part .teams .team .team-text, .activities .activities-sec .activities-content .second-part .teams .team .club-text, .activities .activities-sec .activities-content .second-part .teams .team .ambassador-text, .activities .activities-sec .activities-content .second-part .teams .club .program-text, .activities .activities-sec .activities-content .second-part .teams .club .team-text, .activities .activities-sec .activities-content .second-part .teams .club .club-text, .activities .activities-sec .activities-content .second-part .teams .club .ambassador-text, .activities .activities-sec .activities-content .second-part .teams .ambassador .program-text, .activities .activities-sec .activities-content .second-part .teams .ambassador .team-text, .activities .activities-sec .activities-content .second-part .teams .ambassador .club-text, .activities .activities-sec .activities-content .second-part .teams .ambassador .ambassador-text, .activities .activities-sec .activities-content .second-part .clubs .program .program-text, .activities .activities-sec .activities-content .second-part .clubs .program .team-text, .activities .activities-sec .activities-content .second-part .clubs .program .club-text, .activities .activities-sec .activities-content .second-part .clubs .program .ambassador-text, .activities .activities-sec .activities-content .second-part .clubs .team .program-text, .activities .activities-sec .activities-content .second-part .clubs .team .team-text, .activities .activities-sec .activities-content .second-part .clubs .team .club-text, .activities .activities-sec .activities-content .second-part .clubs .team .ambassador-text, .activities .activities-sec .activities-content .second-part .clubs .club .program-text, .activities .activities-sec .activities-content .second-part .clubs .club .team-text, .activities .activities-sec .activities-content .second-part .clubs .club .club-text, .activities .activities-sec .activities-content .second-part .clubs .club .ambassador-text, .activities .activities-sec .activities-content .second-part .clubs .ambassador .program-text, .activities .activities-sec .activities-content .second-part .clubs .ambassador .team-text, .activities .activities-sec .activities-content .second-part .clubs .ambassador .club-text, .activities .activities-sec .activities-content .second-part .clubs .ambassador .ambassador-text, .activities .activities-sec .activities-content .second-part .ambassadors .program .program-text, .activities .activities-sec .activities-content .second-part .ambassadors .program .team-text, .activities .activities-sec .activities-content .second-part .ambassadors .program .club-text, .activities .activities-sec .activities-content .second-part .ambassadors .program .ambassador-text, .activities .activities-sec .activities-content .second-part .ambassadors .team .program-text, .activities .activities-sec .activities-content .second-part .ambassadors .team .team-text, .activities .activities-sec .activities-content .second-part .ambassadors .team .club-text, .activities .activities-sec .activities-content .second-part .ambassadors .team .ambassador-text, .activities .activities-sec .activities-content .second-part .ambassadors .club .program-text, .activities .activities-sec .activities-content .second-part .ambassadors .club .team-text, .activities .activities-sec .activities-content .second-part .ambassadors .club .club-text, .activities .activities-sec .activities-content .second-part .ambassadors .club .ambassador-text, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .program-text, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .team-text, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .club-text, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .ambassador-text, .activities .activities-sec .activities-content .third-part .programs .program .program-text, .activities .activities-sec .activities-content .third-part .programs .program .team-text, .activities .activities-sec .activities-content .third-part .programs .program .club-text, .activities .activities-sec .activities-content .third-part .programs .program .ambassador-text, .activities .activities-sec .activities-content .third-part .programs .team .program-text, .activities .activities-sec .activities-content .third-part .programs .team .team-text, .activities .activities-sec .activities-content .third-part .programs .team .club-text, .activities .activities-sec .activities-content .third-part .programs .team .ambassador-text, .activities .activities-sec .activities-content .third-part .programs .club .program-text, .activities .activities-sec .activities-content .third-part .programs .club .team-text, .activities .activities-sec .activities-content .third-part .programs .club .club-text, .activities .activities-sec .activities-content .third-part .programs .club .ambassador-text, .activities .activities-sec .activities-content .third-part .programs .ambassador .program-text, .activities .activities-sec .activities-content .third-part .programs .ambassador .team-text, .activities .activities-sec .activities-content .third-part .programs .ambassador .club-text, .activities .activities-sec .activities-content .third-part .programs .ambassador .ambassador-text, .activities .activities-sec .activities-content .third-part .teams .program .program-text, .activities .activities-sec .activities-content .third-part .teams .program .team-text, .activities .activities-sec .activities-content .third-part .teams .program .club-text, .activities .activities-sec .activities-content .third-part .teams .program .ambassador-text, .activities .activities-sec .activities-content .third-part .teams .team .program-text, .activities .activities-sec .activities-content .third-part .teams .team .team-text, .activities .activities-sec .activities-content .third-part .teams .team .club-text, .activities .activities-sec .activities-content .third-part .teams .team .ambassador-text, .activities .activities-sec .activities-content .third-part .teams .club .program-text, .activities .activities-sec .activities-content .third-part .teams .club .team-text, .activities .activities-sec .activities-content .third-part .teams .club .club-text, .activities .activities-sec .activities-content .third-part .teams .club .ambassador-text, .activities .activities-sec .activities-content .third-part .teams .ambassador .program-text, .activities .activities-sec .activities-content .third-part .teams .ambassador .team-text, .activities .activities-sec .activities-content .third-part .teams .ambassador .club-text, .activities .activities-sec .activities-content .third-part .teams .ambassador .ambassador-text, .activities .activities-sec .activities-content .third-part .clubs .program .program-text, .activities .activities-sec .activities-content .third-part .clubs .program .team-text, .activities .activities-sec .activities-content .third-part .clubs .program .club-text, .activities .activities-sec .activities-content .third-part .clubs .program .ambassador-text, .activities .activities-sec .activities-content .third-part .clubs .team .program-text, .activities .activities-sec .activities-content .third-part .clubs .team .team-text, .activities .activities-sec .activities-content .third-part .clubs .team .club-text, .activities .activities-sec .activities-content .third-part .clubs .team .ambassador-text, .activities .activities-sec .activities-content .third-part .clubs .club .program-text, .activities .activities-sec .activities-content .third-part .clubs .club .team-text, .activities .activities-sec .activities-content .third-part .clubs .club .club-text, .activities .activities-sec .activities-content .third-part .clubs .club .ambassador-text, .activities .activities-sec .activities-content .third-part .clubs .ambassador .program-text, .activities .activities-sec .activities-content .third-part .clubs .ambassador .team-text, .activities .activities-sec .activities-content .third-part .clubs .ambassador .club-text, .activities .activities-sec .activities-content .third-part .clubs .ambassador .ambassador-text, .activities .activities-sec .activities-content .third-part .ambassadors .program .program-text, .activities .activities-sec .activities-content .third-part .ambassadors .program .team-text, .activities .activities-sec .activities-content .third-part .ambassadors .program .club-text, .activities .activities-sec .activities-content .third-part .ambassadors .program .ambassador-text, .activities .activities-sec .activities-content .third-part .ambassadors .team .program-text, .activities .activities-sec .activities-content .third-part .ambassadors .team .team-text, .activities .activities-sec .activities-content .third-part .ambassadors .team .club-text, .activities .activities-sec .activities-content .third-part .ambassadors .team .ambassador-text, .activities .activities-sec .activities-content .third-part .ambassadors .club .program-text, .activities .activities-sec .activities-content .third-part .ambassadors .club .team-text, .activities .activities-sec .activities-content .third-part .ambassadors .club .club-text, .activities .activities-sec .activities-content .third-part .ambassadors .club .ambassador-text, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .program-text, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .team-text, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .club-text, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .ambassador-text, .activities .activities-sec .activities-content .fourth-part .programs .program .program-text, .activities .activities-sec .activities-content .fourth-part .programs .program .team-text, .activities .activities-sec .activities-content .fourth-part .programs .program .club-text, .activities .activities-sec .activities-content .fourth-part .programs .program .ambassador-text, .activities .activities-sec .activities-content .fourth-part .programs .team .program-text, .activities .activities-sec .activities-content .fourth-part .programs .team .team-text, .activities .activities-sec .activities-content .fourth-part .programs .team .club-text, .activities .activities-sec .activities-content .fourth-part .programs .team .ambassador-text, .activities .activities-sec .activities-content .fourth-part .programs .club .program-text, .activities .activities-sec .activities-content .fourth-part .programs .club .team-text, .activities .activities-sec .activities-content .fourth-part .programs .club .club-text, .activities .activities-sec .activities-content .fourth-part .programs .club .ambassador-text, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .program-text, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .team-text, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .club-text, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .ambassador-text, .activities .activities-sec .activities-content .fourth-part .teams .program .program-text, .activities .activities-sec .activities-content .fourth-part .teams .program .team-text, .activities .activities-sec .activities-content .fourth-part .teams .program .club-text, .activities .activities-sec .activities-content .fourth-part .teams .program .ambassador-text, .activities .activities-sec .activities-content .fourth-part .teams .team .program-text, .activities .activities-sec .activities-content .fourth-part .teams .team .team-text, .activities .activities-sec .activities-content .fourth-part .teams .team .club-text, .activities .activities-sec .activities-content .fourth-part .teams .team .ambassador-text, .activities .activities-sec .activities-content .fourth-part .teams .club .program-text, .activities .activities-sec .activities-content .fourth-part .teams .club .team-text, .activities .activities-sec .activities-content .fourth-part .teams .club .club-text, .activities .activities-sec .activities-content .fourth-part .teams .club .ambassador-text, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .program-text, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .team-text, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .club-text, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .ambassador-text, .activities .activities-sec .activities-content .fourth-part .clubs .program .program-text, .activities .activities-sec .activities-content .fourth-part .clubs .program .team-text, .activities .activities-sec .activities-content .fourth-part .clubs .program .club-text, .activities .activities-sec .activities-content .fourth-part .clubs .program .ambassador-text, .activities .activities-sec .activities-content .fourth-part .clubs .team .program-text, .activities .activities-sec .activities-content .fourth-part .clubs .team .team-text, .activities .activities-sec .activities-content .fourth-part .clubs .team .club-text, .activities .activities-sec .activities-content .fourth-part .clubs .team .ambassador-text, .activities .activities-sec .activities-content .fourth-part .clubs .club .program-text, .activities .activities-sec .activities-content .fourth-part .clubs .club .team-text, .activities .activities-sec .activities-content .fourth-part .clubs .club .club-text, .activities .activities-sec .activities-content .fourth-part .clubs .club .ambassador-text, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .program-text, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .team-text, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .club-text, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .ambassador-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .program-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .team-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .club-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .ambassador-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .program-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .team-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .club-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .ambassador-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .program-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .team-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .club-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .ambassador-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .program-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .team-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .club-text, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .ambassador-text {
+  border-top: var(--color-secondary) solid 10px;
+  padding: 1rem;
+}
+.activities .activities-sec .activities-content .first-part .programs .program .program-text .title, .activities .activities-sec .activities-content .first-part .programs .program .team-text .title, .activities .activities-sec .activities-content .first-part .programs .program .club-text .title, .activities .activities-sec .activities-content .first-part .programs .program .ambassador-text .title, .activities .activities-sec .activities-content .first-part .programs .team .program-text .title, .activities .activities-sec .activities-content .first-part .programs .team .team-text .title, .activities .activities-sec .activities-content .first-part .programs .team .club-text .title, .activities .activities-sec .activities-content .first-part .programs .team .ambassador-text .title, .activities .activities-sec .activities-content .first-part .programs .club .program-text .title, .activities .activities-sec .activities-content .first-part .programs .club .team-text .title, .activities .activities-sec .activities-content .first-part .programs .club .club-text .title, .activities .activities-sec .activities-content .first-part .programs .club .ambassador-text .title, .activities .activities-sec .activities-content .first-part .programs .ambassador .program-text .title, .activities .activities-sec .activities-content .first-part .programs .ambassador .team-text .title, .activities .activities-sec .activities-content .first-part .programs .ambassador .club-text .title, .activities .activities-sec .activities-content .first-part .programs .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .first-part .teams .program .program-text .title, .activities .activities-sec .activities-content .first-part .teams .program .team-text .title, .activities .activities-sec .activities-content .first-part .teams .program .club-text .title, .activities .activities-sec .activities-content .first-part .teams .program .ambassador-text .title, .activities .activities-sec .activities-content .first-part .teams .team .program-text .title, .activities .activities-sec .activities-content .first-part .teams .team .team-text .title, .activities .activities-sec .activities-content .first-part .teams .team .club-text .title, .activities .activities-sec .activities-content .first-part .teams .team .ambassador-text .title, .activities .activities-sec .activities-content .first-part .teams .club .program-text .title, .activities .activities-sec .activities-content .first-part .teams .club .team-text .title, .activities .activities-sec .activities-content .first-part .teams .club .club-text .title, .activities .activities-sec .activities-content .first-part .teams .club .ambassador-text .title, .activities .activities-sec .activities-content .first-part .teams .ambassador .program-text .title, .activities .activities-sec .activities-content .first-part .teams .ambassador .team-text .title, .activities .activities-sec .activities-content .first-part .teams .ambassador .club-text .title, .activities .activities-sec .activities-content .first-part .teams .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .first-part .clubs .program .program-text .title, .activities .activities-sec .activities-content .first-part .clubs .program .team-text .title, .activities .activities-sec .activities-content .first-part .clubs .program .club-text .title, .activities .activities-sec .activities-content .first-part .clubs .program .ambassador-text .title, .activities .activities-sec .activities-content .first-part .clubs .team .program-text .title, .activities .activities-sec .activities-content .first-part .clubs .team .team-text .title, .activities .activities-sec .activities-content .first-part .clubs .team .club-text .title, .activities .activities-sec .activities-content .first-part .clubs .team .ambassador-text .title, .activities .activities-sec .activities-content .first-part .clubs .club .program-text .title, .activities .activities-sec .activities-content .first-part .clubs .club .team-text .title, .activities .activities-sec .activities-content .first-part .clubs .club .club-text .title, .activities .activities-sec .activities-content .first-part .clubs .club .ambassador-text .title, .activities .activities-sec .activities-content .first-part .clubs .ambassador .program-text .title, .activities .activities-sec .activities-content .first-part .clubs .ambassador .team-text .title, .activities .activities-sec .activities-content .first-part .clubs .ambassador .club-text .title, .activities .activities-sec .activities-content .first-part .clubs .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .program .program-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .program .team-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .program .club-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .program .ambassador-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .team .program-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .team .team-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .team .club-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .team .ambassador-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .club .program-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .club .team-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .club .club-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .club .ambassador-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .program-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .team-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .club-text .title, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .second-part .programs .program .program-text .title, .activities .activities-sec .activities-content .second-part .programs .program .team-text .title, .activities .activities-sec .activities-content .second-part .programs .program .club-text .title, .activities .activities-sec .activities-content .second-part .programs .program .ambassador-text .title, .activities .activities-sec .activities-content .second-part .programs .team .program-text .title, .activities .activities-sec .activities-content .second-part .programs .team .team-text .title, .activities .activities-sec .activities-content .second-part .programs .team .club-text .title, .activities .activities-sec .activities-content .second-part .programs .team .ambassador-text .title, .activities .activities-sec .activities-content .second-part .programs .club .program-text .title, .activities .activities-sec .activities-content .second-part .programs .club .team-text .title, .activities .activities-sec .activities-content .second-part .programs .club .club-text .title, .activities .activities-sec .activities-content .second-part .programs .club .ambassador-text .title, .activities .activities-sec .activities-content .second-part .programs .ambassador .program-text .title, .activities .activities-sec .activities-content .second-part .programs .ambassador .team-text .title, .activities .activities-sec .activities-content .second-part .programs .ambassador .club-text .title, .activities .activities-sec .activities-content .second-part .programs .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .second-part .teams .program .program-text .title, .activities .activities-sec .activities-content .second-part .teams .program .team-text .title, .activities .activities-sec .activities-content .second-part .teams .program .club-text .title, .activities .activities-sec .activities-content .second-part .teams .program .ambassador-text .title, .activities .activities-sec .activities-content .second-part .teams .team .program-text .title, .activities .activities-sec .activities-content .second-part .teams .team .team-text .title, .activities .activities-sec .activities-content .second-part .teams .team .club-text .title, .activities .activities-sec .activities-content .second-part .teams .team .ambassador-text .title, .activities .activities-sec .activities-content .second-part .teams .club .program-text .title, .activities .activities-sec .activities-content .second-part .teams .club .team-text .title, .activities .activities-sec .activities-content .second-part .teams .club .club-text .title, .activities .activities-sec .activities-content .second-part .teams .club .ambassador-text .title, .activities .activities-sec .activities-content .second-part .teams .ambassador .program-text .title, .activities .activities-sec .activities-content .second-part .teams .ambassador .team-text .title, .activities .activities-sec .activities-content .second-part .teams .ambassador .club-text .title, .activities .activities-sec .activities-content .second-part .teams .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .second-part .clubs .program .program-text .title, .activities .activities-sec .activities-content .second-part .clubs .program .team-text .title, .activities .activities-sec .activities-content .second-part .clubs .program .club-text .title, .activities .activities-sec .activities-content .second-part .clubs .program .ambassador-text .title, .activities .activities-sec .activities-content .second-part .clubs .team .program-text .title, .activities .activities-sec .activities-content .second-part .clubs .team .team-text .title, .activities .activities-sec .activities-content .second-part .clubs .team .club-text .title, .activities .activities-sec .activities-content .second-part .clubs .team .ambassador-text .title, .activities .activities-sec .activities-content .second-part .clubs .club .program-text .title, .activities .activities-sec .activities-content .second-part .clubs .club .team-text .title, .activities .activities-sec .activities-content .second-part .clubs .club .club-text .title, .activities .activities-sec .activities-content .second-part .clubs .club .ambassador-text .title, .activities .activities-sec .activities-content .second-part .clubs .ambassador .program-text .title, .activities .activities-sec .activities-content .second-part .clubs .ambassador .team-text .title, .activities .activities-sec .activities-content .second-part .clubs .ambassador .club-text .title, .activities .activities-sec .activities-content .second-part .clubs .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .program .program-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .program .team-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .program .club-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .program .ambassador-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .team .program-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .team .team-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .team .club-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .team .ambassador-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .club .program-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .club .team-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .club .club-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .club .ambassador-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .program-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .team-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .club-text .title, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .third-part .programs .program .program-text .title, .activities .activities-sec .activities-content .third-part .programs .program .team-text .title, .activities .activities-sec .activities-content .third-part .programs .program .club-text .title, .activities .activities-sec .activities-content .third-part .programs .program .ambassador-text .title, .activities .activities-sec .activities-content .third-part .programs .team .program-text .title, .activities .activities-sec .activities-content .third-part .programs .team .team-text .title, .activities .activities-sec .activities-content .third-part .programs .team .club-text .title, .activities .activities-sec .activities-content .third-part .programs .team .ambassador-text .title, .activities .activities-sec .activities-content .third-part .programs .club .program-text .title, .activities .activities-sec .activities-content .third-part .programs .club .team-text .title, .activities .activities-sec .activities-content .third-part .programs .club .club-text .title, .activities .activities-sec .activities-content .third-part .programs .club .ambassador-text .title, .activities .activities-sec .activities-content .third-part .programs .ambassador .program-text .title, .activities .activities-sec .activities-content .third-part .programs .ambassador .team-text .title, .activities .activities-sec .activities-content .third-part .programs .ambassador .club-text .title, .activities .activities-sec .activities-content .third-part .programs .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .third-part .teams .program .program-text .title, .activities .activities-sec .activities-content .third-part .teams .program .team-text .title, .activities .activities-sec .activities-content .third-part .teams .program .club-text .title, .activities .activities-sec .activities-content .third-part .teams .program .ambassador-text .title, .activities .activities-sec .activities-content .third-part .teams .team .program-text .title, .activities .activities-sec .activities-content .third-part .teams .team .team-text .title, .activities .activities-sec .activities-content .third-part .teams .team .club-text .title, .activities .activities-sec .activities-content .third-part .teams .team .ambassador-text .title, .activities .activities-sec .activities-content .third-part .teams .club .program-text .title, .activities .activities-sec .activities-content .third-part .teams .club .team-text .title, .activities .activities-sec .activities-content .third-part .teams .club .club-text .title, .activities .activities-sec .activities-content .third-part .teams .club .ambassador-text .title, .activities .activities-sec .activities-content .third-part .teams .ambassador .program-text .title, .activities .activities-sec .activities-content .third-part .teams .ambassador .team-text .title, .activities .activities-sec .activities-content .third-part .teams .ambassador .club-text .title, .activities .activities-sec .activities-content .third-part .teams .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .third-part .clubs .program .program-text .title, .activities .activities-sec .activities-content .third-part .clubs .program .team-text .title, .activities .activities-sec .activities-content .third-part .clubs .program .club-text .title, .activities .activities-sec .activities-content .third-part .clubs .program .ambassador-text .title, .activities .activities-sec .activities-content .third-part .clubs .team .program-text .title, .activities .activities-sec .activities-content .third-part .clubs .team .team-text .title, .activities .activities-sec .activities-content .third-part .clubs .team .club-text .title, .activities .activities-sec .activities-content .third-part .clubs .team .ambassador-text .title, .activities .activities-sec .activities-content .third-part .clubs .club .program-text .title, .activities .activities-sec .activities-content .third-part .clubs .club .team-text .title, .activities .activities-sec .activities-content .third-part .clubs .club .club-text .title, .activities .activities-sec .activities-content .third-part .clubs .club .ambassador-text .title, .activities .activities-sec .activities-content .third-part .clubs .ambassador .program-text .title, .activities .activities-sec .activities-content .third-part .clubs .ambassador .team-text .title, .activities .activities-sec .activities-content .third-part .clubs .ambassador .club-text .title, .activities .activities-sec .activities-content .third-part .clubs .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .program .program-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .program .team-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .program .club-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .program .ambassador-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .team .program-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .team .team-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .team .club-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .team .ambassador-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .club .program-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .club .team-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .club .club-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .club .ambassador-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .program-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .team-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .club-text .title, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .programs .program .program-text .title, .activities .activities-sec .activities-content .fourth-part .programs .program .team-text .title, .activities .activities-sec .activities-content .fourth-part .programs .program .club-text .title, .activities .activities-sec .activities-content .fourth-part .programs .program .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .programs .team .program-text .title, .activities .activities-sec .activities-content .fourth-part .programs .team .team-text .title, .activities .activities-sec .activities-content .fourth-part .programs .team .club-text .title, .activities .activities-sec .activities-content .fourth-part .programs .team .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .programs .club .program-text .title, .activities .activities-sec .activities-content .fourth-part .programs .club .team-text .title, .activities .activities-sec .activities-content .fourth-part .programs .club .club-text .title, .activities .activities-sec .activities-content .fourth-part .programs .club .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .program-text .title, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .team-text .title, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .club-text .title, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .teams .program .program-text .title, .activities .activities-sec .activities-content .fourth-part .teams .program .team-text .title, .activities .activities-sec .activities-content .fourth-part .teams .program .club-text .title, .activities .activities-sec .activities-content .fourth-part .teams .program .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .teams .team .program-text .title, .activities .activities-sec .activities-content .fourth-part .teams .team .team-text .title, .activities .activities-sec .activities-content .fourth-part .teams .team .club-text .title, .activities .activities-sec .activities-content .fourth-part .teams .team .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .teams .club .program-text .title, .activities .activities-sec .activities-content .fourth-part .teams .club .team-text .title, .activities .activities-sec .activities-content .fourth-part .teams .club .club-text .title, .activities .activities-sec .activities-content .fourth-part .teams .club .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .program-text .title, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .team-text .title, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .club-text .title, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .program .program-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .program .team-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .program .club-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .program .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .team .program-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .team .team-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .team .club-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .team .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .club .program-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .club .team-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .club .club-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .club .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .program-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .team-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .club-text .title, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .program-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .team-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .club-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .program-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .team-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .club-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .program-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .team-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .club-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .ambassador-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .program-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .team-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .club-text .title, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .ambassador-text .title {
+  cursor: pointer;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  transition: var(--transition);
+}
+.activities .activities-sec .activities-content .first-part .programs .program .program-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .program .team-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .program .club-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .team .program-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .team .team-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .team .club-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .club .program-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .club .team-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .club .club-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .first-part .programs .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .program .program-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .program .team-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .program .club-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .team .program-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .team .team-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .team .club-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .club .program-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .club .team-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .club .club-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .first-part .teams .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .program .program-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .program .team-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .program .club-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .team .program-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .team .team-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .team .club-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .club .program-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .club .team-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .club .club-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .first-part .clubs .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .program .program-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .program .team-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .program .club-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .team .program-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .team .team-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .team .club-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .club .program-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .club .team-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .club .club-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .program .program-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .program .team-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .program .club-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .team .program-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .team .team-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .team .club-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .club .program-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .club .team-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .club .club-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .second-part .programs .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .program .program-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .program .team-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .program .club-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .team .program-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .team .team-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .team .club-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .club .program-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .club .team-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .club .club-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .second-part .teams .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .program .program-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .program .team-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .program .club-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .team .program-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .team .team-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .team .club-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .club .program-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .club .team-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .club .club-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .second-part .clubs .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .program .program-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .program .team-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .program .club-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .team .program-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .team .team-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .team .club-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .club .program-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .club .team-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .club .club-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .program .program-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .program .team-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .program .club-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .team .program-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .team .team-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .team .club-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .club .program-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .club .team-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .club .club-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .third-part .programs .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .program .program-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .program .team-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .program .club-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .team .program-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .team .team-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .team .club-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .club .program-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .club .team-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .club .club-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .third-part .teams .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .program .program-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .program .team-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .program .club-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .team .program-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .team .team-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .team .club-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .club .program-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .club .team-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .club .club-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .third-part .clubs .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .program .program-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .program .team-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .program .club-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .team .program-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .team .team-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .team .club-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .club .program-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .club .team-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .club .club-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .program .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .program .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .program .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .team .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .team .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .team .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .club .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .club .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .club .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .program .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .program .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .program .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .team .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .team .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .team .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .club .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .club .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .club .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .program .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .program .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .program .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .team .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .team .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .team .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .club .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .club .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .club .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .ambassador-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .program-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .team-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .club-text .title:hover, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .ambassador-text .title:hover {
+  color: var(--color-secondary);
+}
+.activities .activities-sec .activities-content .first-part .programs .program .program-text p, .activities .activities-sec .activities-content .first-part .programs .program .team-text p, .activities .activities-sec .activities-content .first-part .programs .program .club-text p, .activities .activities-sec .activities-content .first-part .programs .program .ambassador-text p, .activities .activities-sec .activities-content .first-part .programs .team .program-text p, .activities .activities-sec .activities-content .first-part .programs .team .team-text p, .activities .activities-sec .activities-content .first-part .programs .team .club-text p, .activities .activities-sec .activities-content .first-part .programs .team .ambassador-text p, .activities .activities-sec .activities-content .first-part .programs .club .program-text p, .activities .activities-sec .activities-content .first-part .programs .club .team-text p, .activities .activities-sec .activities-content .first-part .programs .club .club-text p, .activities .activities-sec .activities-content .first-part .programs .club .ambassador-text p, .activities .activities-sec .activities-content .first-part .programs .ambassador .program-text p, .activities .activities-sec .activities-content .first-part .programs .ambassador .team-text p, .activities .activities-sec .activities-content .first-part .programs .ambassador .club-text p, .activities .activities-sec .activities-content .first-part .programs .ambassador .ambassador-text p, .activities .activities-sec .activities-content .first-part .teams .program .program-text p, .activities .activities-sec .activities-content .first-part .teams .program .team-text p, .activities .activities-sec .activities-content .first-part .teams .program .club-text p, .activities .activities-sec .activities-content .first-part .teams .program .ambassador-text p, .activities .activities-sec .activities-content .first-part .teams .team .program-text p, .activities .activities-sec .activities-content .first-part .teams .team .team-text p, .activities .activities-sec .activities-content .first-part .teams .team .club-text p, .activities .activities-sec .activities-content .first-part .teams .team .ambassador-text p, .activities .activities-sec .activities-content .first-part .teams .club .program-text p, .activities .activities-sec .activities-content .first-part .teams .club .team-text p, .activities .activities-sec .activities-content .first-part .teams .club .club-text p, .activities .activities-sec .activities-content .first-part .teams .club .ambassador-text p, .activities .activities-sec .activities-content .first-part .teams .ambassador .program-text p, .activities .activities-sec .activities-content .first-part .teams .ambassador .team-text p, .activities .activities-sec .activities-content .first-part .teams .ambassador .club-text p, .activities .activities-sec .activities-content .first-part .teams .ambassador .ambassador-text p, .activities .activities-sec .activities-content .first-part .clubs .program .program-text p, .activities .activities-sec .activities-content .first-part .clubs .program .team-text p, .activities .activities-sec .activities-content .first-part .clubs .program .club-text p, .activities .activities-sec .activities-content .first-part .clubs .program .ambassador-text p, .activities .activities-sec .activities-content .first-part .clubs .team .program-text p, .activities .activities-sec .activities-content .first-part .clubs .team .team-text p, .activities .activities-sec .activities-content .first-part .clubs .team .club-text p, .activities .activities-sec .activities-content .first-part .clubs .team .ambassador-text p, .activities .activities-sec .activities-content .first-part .clubs .club .program-text p, .activities .activities-sec .activities-content .first-part .clubs .club .team-text p, .activities .activities-sec .activities-content .first-part .clubs .club .club-text p, .activities .activities-sec .activities-content .first-part .clubs .club .ambassador-text p, .activities .activities-sec .activities-content .first-part .clubs .ambassador .program-text p, .activities .activities-sec .activities-content .first-part .clubs .ambassador .team-text p, .activities .activities-sec .activities-content .first-part .clubs .ambassador .club-text p, .activities .activities-sec .activities-content .first-part .clubs .ambassador .ambassador-text p, .activities .activities-sec .activities-content .first-part .ambassadors .program .program-text p, .activities .activities-sec .activities-content .first-part .ambassadors .program .team-text p, .activities .activities-sec .activities-content .first-part .ambassadors .program .club-text p, .activities .activities-sec .activities-content .first-part .ambassadors .program .ambassador-text p, .activities .activities-sec .activities-content .first-part .ambassadors .team .program-text p, .activities .activities-sec .activities-content .first-part .ambassadors .team .team-text p, .activities .activities-sec .activities-content .first-part .ambassadors .team .club-text p, .activities .activities-sec .activities-content .first-part .ambassadors .team .ambassador-text p, .activities .activities-sec .activities-content .first-part .ambassadors .club .program-text p, .activities .activities-sec .activities-content .first-part .ambassadors .club .team-text p, .activities .activities-sec .activities-content .first-part .ambassadors .club .club-text p, .activities .activities-sec .activities-content .first-part .ambassadors .club .ambassador-text p, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .program-text p, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .team-text p, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .club-text p, .activities .activities-sec .activities-content .first-part .ambassadors .ambassador .ambassador-text p, .activities .activities-sec .activities-content .second-part .programs .program .program-text p, .activities .activities-sec .activities-content .second-part .programs .program .team-text p, .activities .activities-sec .activities-content .second-part .programs .program .club-text p, .activities .activities-sec .activities-content .second-part .programs .program .ambassador-text p, .activities .activities-sec .activities-content .second-part .programs .team .program-text p, .activities .activities-sec .activities-content .second-part .programs .team .team-text p, .activities .activities-sec .activities-content .second-part .programs .team .club-text p, .activities .activities-sec .activities-content .second-part .programs .team .ambassador-text p, .activities .activities-sec .activities-content .second-part .programs .club .program-text p, .activities .activities-sec .activities-content .second-part .programs .club .team-text p, .activities .activities-sec .activities-content .second-part .programs .club .club-text p, .activities .activities-sec .activities-content .second-part .programs .club .ambassador-text p, .activities .activities-sec .activities-content .second-part .programs .ambassador .program-text p, .activities .activities-sec .activities-content .second-part .programs .ambassador .team-text p, .activities .activities-sec .activities-content .second-part .programs .ambassador .club-text p, .activities .activities-sec .activities-content .second-part .programs .ambassador .ambassador-text p, .activities .activities-sec .activities-content .second-part .teams .program .program-text p, .activities .activities-sec .activities-content .second-part .teams .program .team-text p, .activities .activities-sec .activities-content .second-part .teams .program .club-text p, .activities .activities-sec .activities-content .second-part .teams .program .ambassador-text p, .activities .activities-sec .activities-content .second-part .teams .team .program-text p, .activities .activities-sec .activities-content .second-part .teams .team .team-text p, .activities .activities-sec .activities-content .second-part .teams .team .club-text p, .activities .activities-sec .activities-content .second-part .teams .team .ambassador-text p, .activities .activities-sec .activities-content .second-part .teams .club .program-text p, .activities .activities-sec .activities-content .second-part .teams .club .team-text p, .activities .activities-sec .activities-content .second-part .teams .club .club-text p, .activities .activities-sec .activities-content .second-part .teams .club .ambassador-text p, .activities .activities-sec .activities-content .second-part .teams .ambassador .program-text p, .activities .activities-sec .activities-content .second-part .teams .ambassador .team-text p, .activities .activities-sec .activities-content .second-part .teams .ambassador .club-text p, .activities .activities-sec .activities-content .second-part .teams .ambassador .ambassador-text p, .activities .activities-sec .activities-content .second-part .clubs .program .program-text p, .activities .activities-sec .activities-content .second-part .clubs .program .team-text p, .activities .activities-sec .activities-content .second-part .clubs .program .club-text p, .activities .activities-sec .activities-content .second-part .clubs .program .ambassador-text p, .activities .activities-sec .activities-content .second-part .clubs .team .program-text p, .activities .activities-sec .activities-content .second-part .clubs .team .team-text p, .activities .activities-sec .activities-content .second-part .clubs .team .club-text p, .activities .activities-sec .activities-content .second-part .clubs .team .ambassador-text p, .activities .activities-sec .activities-content .second-part .clubs .club .program-text p, .activities .activities-sec .activities-content .second-part .clubs .club .team-text p, .activities .activities-sec .activities-content .second-part .clubs .club .club-text p, .activities .activities-sec .activities-content .second-part .clubs .club .ambassador-text p, .activities .activities-sec .activities-content .second-part .clubs .ambassador .program-text p, .activities .activities-sec .activities-content .second-part .clubs .ambassador .team-text p, .activities .activities-sec .activities-content .second-part .clubs .ambassador .club-text p, .activities .activities-sec .activities-content .second-part .clubs .ambassador .ambassador-text p, .activities .activities-sec .activities-content .second-part .ambassadors .program .program-text p, .activities .activities-sec .activities-content .second-part .ambassadors .program .team-text p, .activities .activities-sec .activities-content .second-part .ambassadors .program .club-text p, .activities .activities-sec .activities-content .second-part .ambassadors .program .ambassador-text p, .activities .activities-sec .activities-content .second-part .ambassadors .team .program-text p, .activities .activities-sec .activities-content .second-part .ambassadors .team .team-text p, .activities .activities-sec .activities-content .second-part .ambassadors .team .club-text p, .activities .activities-sec .activities-content .second-part .ambassadors .team .ambassador-text p, .activities .activities-sec .activities-content .second-part .ambassadors .club .program-text p, .activities .activities-sec .activities-content .second-part .ambassadors .club .team-text p, .activities .activities-sec .activities-content .second-part .ambassadors .club .club-text p, .activities .activities-sec .activities-content .second-part .ambassadors .club .ambassador-text p, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .program-text p, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .team-text p, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .club-text p, .activities .activities-sec .activities-content .second-part .ambassadors .ambassador .ambassador-text p, .activities .activities-sec .activities-content .third-part .programs .program .program-text p, .activities .activities-sec .activities-content .third-part .programs .program .team-text p, .activities .activities-sec .activities-content .third-part .programs .program .club-text p, .activities .activities-sec .activities-content .third-part .programs .program .ambassador-text p, .activities .activities-sec .activities-content .third-part .programs .team .program-text p, .activities .activities-sec .activities-content .third-part .programs .team .team-text p, .activities .activities-sec .activities-content .third-part .programs .team .club-text p, .activities .activities-sec .activities-content .third-part .programs .team .ambassador-text p, .activities .activities-sec .activities-content .third-part .programs .club .program-text p, .activities .activities-sec .activities-content .third-part .programs .club .team-text p, .activities .activities-sec .activities-content .third-part .programs .club .club-text p, .activities .activities-sec .activities-content .third-part .programs .club .ambassador-text p, .activities .activities-sec .activities-content .third-part .programs .ambassador .program-text p, .activities .activities-sec .activities-content .third-part .programs .ambassador .team-text p, .activities .activities-sec .activities-content .third-part .programs .ambassador .club-text p, .activities .activities-sec .activities-content .third-part .programs .ambassador .ambassador-text p, .activities .activities-sec .activities-content .third-part .teams .program .program-text p, .activities .activities-sec .activities-content .third-part .teams .program .team-text p, .activities .activities-sec .activities-content .third-part .teams .program .club-text p, .activities .activities-sec .activities-content .third-part .teams .program .ambassador-text p, .activities .activities-sec .activities-content .third-part .teams .team .program-text p, .activities .activities-sec .activities-content .third-part .teams .team .team-text p, .activities .activities-sec .activities-content .third-part .teams .team .club-text p, .activities .activities-sec .activities-content .third-part .teams .team .ambassador-text p, .activities .activities-sec .activities-content .third-part .teams .club .program-text p, .activities .activities-sec .activities-content .third-part .teams .club .team-text p, .activities .activities-sec .activities-content .third-part .teams .club .club-text p, .activities .activities-sec .activities-content .third-part .teams .club .ambassador-text p, .activities .activities-sec .activities-content .third-part .teams .ambassador .program-text p, .activities .activities-sec .activities-content .third-part .teams .ambassador .team-text p, .activities .activities-sec .activities-content .third-part .teams .ambassador .club-text p, .activities .activities-sec .activities-content .third-part .teams .ambassador .ambassador-text p, .activities .activities-sec .activities-content .third-part .clubs .program .program-text p, .activities .activities-sec .activities-content .third-part .clubs .program .team-text p, .activities .activities-sec .activities-content .third-part .clubs .program .club-text p, .activities .activities-sec .activities-content .third-part .clubs .program .ambassador-text p, .activities .activities-sec .activities-content .third-part .clubs .team .program-text p, .activities .activities-sec .activities-content .third-part .clubs .team .team-text p, .activities .activities-sec .activities-content .third-part .clubs .team .club-text p, .activities .activities-sec .activities-content .third-part .clubs .team .ambassador-text p, .activities .activities-sec .activities-content .third-part .clubs .club .program-text p, .activities .activities-sec .activities-content .third-part .clubs .club .team-text p, .activities .activities-sec .activities-content .third-part .clubs .club .club-text p, .activities .activities-sec .activities-content .third-part .clubs .club .ambassador-text p, .activities .activities-sec .activities-content .third-part .clubs .ambassador .program-text p, .activities .activities-sec .activities-content .third-part .clubs .ambassador .team-text p, .activities .activities-sec .activities-content .third-part .clubs .ambassador .club-text p, .activities .activities-sec .activities-content .third-part .clubs .ambassador .ambassador-text p, .activities .activities-sec .activities-content .third-part .ambassadors .program .program-text p, .activities .activities-sec .activities-content .third-part .ambassadors .program .team-text p, .activities .activities-sec .activities-content .third-part .ambassadors .program .club-text p, .activities .activities-sec .activities-content .third-part .ambassadors .program .ambassador-text p, .activities .activities-sec .activities-content .third-part .ambassadors .team .program-text p, .activities .activities-sec .activities-content .third-part .ambassadors .team .team-text p, .activities .activities-sec .activities-content .third-part .ambassadors .team .club-text p, .activities .activities-sec .activities-content .third-part .ambassadors .team .ambassador-text p, .activities .activities-sec .activities-content .third-part .ambassadors .club .program-text p, .activities .activities-sec .activities-content .third-part .ambassadors .club .team-text p, .activities .activities-sec .activities-content .third-part .ambassadors .club .club-text p, .activities .activities-sec .activities-content .third-part .ambassadors .club .ambassador-text p, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .program-text p, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .team-text p, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .club-text p, .activities .activities-sec .activities-content .third-part .ambassadors .ambassador .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .programs .program .program-text p, .activities .activities-sec .activities-content .fourth-part .programs .program .team-text p, .activities .activities-sec .activities-content .fourth-part .programs .program .club-text p, .activities .activities-sec .activities-content .fourth-part .programs .program .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .programs .team .program-text p, .activities .activities-sec .activities-content .fourth-part .programs .team .team-text p, .activities .activities-sec .activities-content .fourth-part .programs .team .club-text p, .activities .activities-sec .activities-content .fourth-part .programs .team .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .programs .club .program-text p, .activities .activities-sec .activities-content .fourth-part .programs .club .team-text p, .activities .activities-sec .activities-content .fourth-part .programs .club .club-text p, .activities .activities-sec .activities-content .fourth-part .programs .club .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .program-text p, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .team-text p, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .club-text p, .activities .activities-sec .activities-content .fourth-part .programs .ambassador .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .teams .program .program-text p, .activities .activities-sec .activities-content .fourth-part .teams .program .team-text p, .activities .activities-sec .activities-content .fourth-part .teams .program .club-text p, .activities .activities-sec .activities-content .fourth-part .teams .program .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .teams .team .program-text p, .activities .activities-sec .activities-content .fourth-part .teams .team .team-text p, .activities .activities-sec .activities-content .fourth-part .teams .team .club-text p, .activities .activities-sec .activities-content .fourth-part .teams .team .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .teams .club .program-text p, .activities .activities-sec .activities-content .fourth-part .teams .club .team-text p, .activities .activities-sec .activities-content .fourth-part .teams .club .club-text p, .activities .activities-sec .activities-content .fourth-part .teams .club .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .program-text p, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .team-text p, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .club-text p, .activities .activities-sec .activities-content .fourth-part .teams .ambassador .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .clubs .program .program-text p, .activities .activities-sec .activities-content .fourth-part .clubs .program .team-text p, .activities .activities-sec .activities-content .fourth-part .clubs .program .club-text p, .activities .activities-sec .activities-content .fourth-part .clubs .program .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .clubs .team .program-text p, .activities .activities-sec .activities-content .fourth-part .clubs .team .team-text p, .activities .activities-sec .activities-content .fourth-part .clubs .team .club-text p, .activities .activities-sec .activities-content .fourth-part .clubs .team .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .clubs .club .program-text p, .activities .activities-sec .activities-content .fourth-part .clubs .club .team-text p, .activities .activities-sec .activities-content .fourth-part .clubs .club .club-text p, .activities .activities-sec .activities-content .fourth-part .clubs .club .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .program-text p, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .team-text p, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .club-text p, .activities .activities-sec .activities-content .fourth-part .clubs .ambassador .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .program-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .team-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .club-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .program .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .program-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .team-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .club-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .team .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .program-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .team-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .club-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .club .ambassador-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .program-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .team-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .club-text p, .activities .activities-sec .activities-content .fourth-part .ambassadors .ambassador .ambassador-text p {
+  margin-top: 0.5rem;
+  color: var(--color-grey-2);
+}
+.activities .activities-sec .activities-content .first-part .clubs, .activities .activities-sec .activities-content .second-part .clubs, .activities .activities-sec .activities-content .third-part .clubs, .activities .activities-sec .activities-content .fourth-part .clubs {
+  grid-template-columns: repeat(2, 1fr);
+}
+.activities .activities-sec .activities-content .first-part .ambassadors, .activities .activities-sec .activities-content .second-part .ambassadors, .activities .activities-sec .activities-content .third-part .ambassadors, .activities .activities-sec .activities-content .fourth-part .ambassadors {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.work .work-sec .design-title, .work .work-sec .front-end-title, .work .work-sec .stem-title {
+  transform: translateX(-50%);
+  font-size: 1.7rem;
+  font-weight: bold;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 8rem 0 3rem 50%;
+}
+.work .work-sec .design-title span, .work .work-sec .front-end-title span, .work .work-sec .stem-title span {
+  color: var(--color-secondary);
+}
+.work .work-sec .design-title, .work .work-sec .stem-title {
+  margin-top: 0;
+}
+.work .work-sec .work-content {
+  margin-bottom: 3rem;
+}
+.work .work-sec .work-content .design-part, .work .work-sec .work-content .front-end-part, .work .work-sec .work-content .stem-part {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}
+.work .work-sec .work-content .design-part .img-container, .work .work-sec .work-content .front-end-part .img-container, .work .work-sec .work-content .stem-part .img-container {
+  border-radius: var(--br-sm-2);
+  box-shadow: var(--box-shadow-1);
+  transition: var(--transition);
+  position: relative;
+}
+.work .work-sec .work-content .design-part .img-container:hover, .work .work-sec .work-content .front-end-part .img-container:hover, .work .work-sec .work-content .stem-part .img-container:hover {
+  box-shadow: var(--box-shadow-2);
+  transform: translateY(-0.5rem);
+  transform: scale(1.06);
+}
+.work .work-sec .work-content .design-part .img-container:hover .back-box, .work .work-sec .work-content .front-end-part .img-container:hover .back-box, .work .work-sec .work-content .stem-part .img-container:hover .back-box {
+  transform: scale(1);
+}
+.work .work-sec .work-content .design-part .img-container img, .work .work-sec .work-content .front-end-part .img-container img, .work .work-sec .work-content .stem-part .img-container img {
+  width: 100%;
+  border-radius: var(--br-sm-2);
+}
+.work .work-sec .work-content .design-part .img-container .back-box, .work .work-sec .work-content .front-end-part .img-container .back-box, .work .work-sec .work-content .stem-part .img-container .back-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-secondary-tr);
+  transition: var(--transition);
+  transform: scale(0);
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: var(--br-sm-2);
+}
+.work .work-sec .work-content .design-part .img-container .back-box .title, .work .work-sec .work-content .front-end-part .img-container .back-box .title, .work .work-sec .work-content .stem-part .img-container .back-box .title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: white;
+}
+.work .work-sec .work-content .design-part .img-container .back-box .text, .work .work-sec .work-content .front-end-part .img-container .back-box .text, .work .work-sec .work-content .stem-part .img-container .back-box .text {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  margin: 0.5rem;
+}
+.work .work-sec .work-content .design-part .img-container .back-box .members, .work .work-sec .work-content .front-end-part .img-container .back-box .members, .work .work-sec .work-content .stem-part .img-container .back-box .members {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  text-align: center;
+  justify-content: center;
+}
+.work .work-sec .work-content .design-part .img-container .back-box .members .member, .work .work-sec .work-content .front-end-part .img-container .back-box .members .member, .work .work-sec .work-content .stem-part .img-container .back-box .members .member {
+  cursor: default;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  border: solid 1px var(--color-grey-5);
+  border-radius: var(--br-sm-2);
+  padding: 0.2rem;
+  transition: var(--transition);
+}
+.work .work-sec .work-content .design-part .img-container .back-box .members .member:hover, .work .work-sec .work-content .front-end-part .img-container .back-box .members .member:hover, .work .work-sec .work-content .stem-part .img-container .back-box .members .member:hover {
+  border-color: white;
+  color: var(--color-grey-5);
+}
+.work .work-sec .work-content .design-part .img-container .back-box i, .work .work-sec .work-content .front-end-part .img-container .back-box i, .work .work-sec .work-content .stem-part .img-container .back-box i {
+  color: var(--color-grey-4);
+  font-size: 1.4rem;
+}
+.work .work-sec .work-content .design-part .img-container .back-box .arrow-down, .work .work-sec .work-content .front-end-part .img-container .back-box .arrow-down, .work .work-sec .work-content .stem-part .img-container .back-box .arrow-down {
+  font-size: 2rem;
+  color: var(--color-grey-4);
+}
+.work .work-sec .work-content .design-part .img-container .back-box .arrow-down-last, .work .work-sec .work-content .front-end-part .img-container .back-box .arrow-down-last, .work .work-sec .work-content .stem-part .img-container .back-box .arrow-down-last {
+  font-size: 1.5rem;
+}
+.work .work-sec .work-content .design-part .img-container .back-box .icon, .work .work-sec .work-content .front-end-part .img-container .back-box .icon, .work .work-sec .work-content .stem-part .img-container .back-box .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.work .work-sec .work-content .design-part .img-container .back-box .icon a, .work .work-sec .work-content .front-end-part .img-container .back-box .icon a, .work .work-sec .work-content .stem-part .img-container .back-box .icon a {
+  padding: 0.2rem;
+  background-color: var(--color-grey-4);
+  border-radius: 50%;
+  width: 3.1rem;
+  height: 3.1rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: var(--transition);
+  margin: 0 1rem;
+}
+.work .work-sec .work-content .design-part .img-container .back-box .icon a:hover, .work .work-sec .work-content .front-end-part .img-container .back-box .icon a:hover, .work .work-sec .work-content .stem-part .img-container .back-box .icon a:hover {
+  background-color: white;
+}
+.work .work-sec .work-content .design-part .img-container .back-box .icon a:hover i, .work .work-sec .work-content .front-end-part .img-container .back-box .icon a:hover i, .work .work-sec .work-content .stem-part .img-container .back-box .icon a:hover i {
+  color: black;
+}
+.work .work-sec .work-content .design-part .img-container .back-box .icon a i, .work .work-sec .work-content .front-end-part .img-container .back-box .icon a i, .work .work-sec .work-content .stem-part .img-container .back-box .icon a i {
+  color: white;
+}
+
+.contact .contact-content .break-line {
+  margin-left: 35%;
+}
+.contact .contact-content .contact-info-title, .contact .contact-content .contact-form-title {
+  transform: translateX(-50%);
+  font-size: 1.7rem;
+  font-weight: bold;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 8rem 0 3rem 50%;
+}
+.contact .contact-content .contact-info-title span, .contact .contact-content .contact-form-title span {
+  color: var(--color-secondary);
+}
+.contact .contact-content .contact-form-title {
+  margin-top: 0;
+}
+.contact .contact-content .left-content p {
+  text-align: justify;
+  line-height: 2rem;
+}
+.contact .contact-content .left-content .contact-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  margin-top: 2rem;
+}
+.contact .contact-content .left-content .contact-info br {
+  display: none;
+}
+.contact .contact-content .left-content .contact-info .info {
+  display: flex;
+  align-items: center;
+}
+.contact .contact-content .left-content .contact-info .info i {
+  font-size: 1.5rem;
+  color: white;
+  background-color: var(--color-secondary);
+  border-radius: 50px;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact .contact-content .left-content .contact-info .info .text {
+  margin-left: 1rem;
+  color: var(--color-grey-1);
+}
+.contact .contact-content .left-content .contact-info .info .text .text-1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.contact .contact-content .left-content .contact-info .info .text .text-2 {
+  font-size: 1rem;
+  cursor: pointer;
+}
+.contact .contact-content .right-content form {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1rem;
+  font-size: 1rem;
+}
+.contact .contact-content .right-content form input, .contact .contact-content .right-content form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  resize: none;
+  background-color: var(--color-grey-4);
+  position: relative;
+  color: white;
+}
+.contact .contact-content .right-content form input::-moz-placeholder, .contact .contact-content .right-content form textarea::-moz-placeholder {
+  color: white;
+}
+.contact .contact-content .right-content form input:-ms-input-placeholder, .contact .contact-content .right-content form textarea:-ms-input-placeholder {
+  color: white;
+}
+.contact .contact-content .right-content form input::placeholder, .contact .contact-content .right-content form textarea::placeholder {
+  color: white;
+}
+.contact .contact-content .right-content form .first-line {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+.contact .contact-content .right-content form .second-line, .contact .contact-content .right-content form .third-line, .contact .contact-content .right-content form .input-1, .contact .contact-content .right-content form .input-2 {
+  position: relative;
+  overflow: hidden;
+}
+.contact .contact-content .right-content form .second-line::after, .contact .contact-content .right-content form .third-line::after, .contact .contact-content .right-content form .input-1::after, .contact .contact-content .right-content form .input-2::after {
+  content: "";
+  background-color: var(--color-secondary);
+  height: 3.5px;
+  width: 100%;
+  position: absolute;
+  transition: var(--transition);
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transform: translateX(-100%);
+}
+.contact .contact-content .right-content form .second-line:focus-within::after, .contact .contact-content .right-content form .third-line:focus-within::after, .contact .contact-content .right-content form .input-1:focus-within::after, .contact .contact-content .right-content form .input-2:focus-within::after {
+  transform: translateX(0);
+}
+.contact .contact-content .right-content form .third-line::after {
+  bottom: 6.5px;
+}
+.contact .contact-content .icons {
+  display: flex;
+  margin: 3rem 0 2rem 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.contact .contact-content .icons a {
+  text-decoration: none;
+}
+.contact .contact-content .icons i {
+  font-size: 1.5rem;
+  color: white;
+  background-color: var(--color-grey-4);
+  border-radius: 50px;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  margin: 0.5rem;
+}
+.contact .contact-content .icons i:hover {
+  background-color: var(--color-secondary);
+}/*# sourceMappingURL=style.css.map */

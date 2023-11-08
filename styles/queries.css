@@ -1,0 +1,130 @@
+@media screen and (max-width: 700px) {
+  .controls {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    top: auto;
+    background-color: var(--color-grey-5);
+  }
+  .controls .control {
+    margin: 0.7rem 0.3rem;
+  }
+  .sec-title {
+    font-size: 3rem !important;
+  }
+  .sec-title2 {
+    font-size: 4rem !important;
+    line-height: 6rem !important;
+  }
+  .home-content .left-content img {
+    width: 80%;
+  }
+  .home-content .right-content {
+    height: auto !important;
+    margin-bottom: 6rem;
+  }
+  .home-content .right-content .first-line, .home-content .right-content .third-line {
+    font-size: 2rem !important;
+  }
+  .home-content .right-content .second-line {
+    font-size: 3rem !important;
+  }
+  .home-content .left-content {
+    padding: 2rem !important;
+    height: 88vh !important;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    margin-bottom: 2rem;
+  }
+  .stats-content {
+    margin-bottom: 7rem !important;
+  }
+  .academics-content .bottom-content {
+    margin-bottom: 7rem !important;
+  }
+  .activities-sec {
+    margin-bottom: 7rem !important;
+  }
+  .activities-sec .programs-title {
+    margin-top: 6rem !important;
+  }
+  .activities-sec .programs, .activities-sec .teams, .activities-sec .clubs, .activities-sec .ambassadors {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .work-content {
+    margin-bottom: 7rem !important;
+  }
+  .work-content .stem-part .back-box .title {
+    font-size: 1.1rem !important;
+  }
+  .work-content .stem-part .back-box .text {
+    font-size: 1.1rem !important;
+  }
+  .work-content .stem-part .back-box .memebers {
+    font-size: 0.9rem !important;
+  }
+  .breif, p {
+    text-align: start !important;
+  }
+}
+@media screen and (max-width: 992px) {
+  .control {
+    width: 3rem !important;
+    height: 3rem !important;
+    font-size: 1.2rem !important;
+  }
+  #particles-js {
+    background-color: transparent;
+    position: absolute;
+    width: 98%;
+    height: 98%;
+  }
+  .home-content .right-content {
+    padding: 2rem 3rem 2rem 2rem !important;
+    height: auto !important;
+  }
+  .home-content .right-content .first-line, .home-content .right-content .third-line {
+    font-size: 2.4rem;
+  }
+  .home-content .right-content .second-line {
+    font-size: 3.8rem;
+  }
+  .home-content .left-content {
+    padding: 2rem !important;
+    height: 88vh !important;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 2rem;
+  }
+  .about-content .right-content {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .stats-content .mini-bar-text {
+    font-size: 0.9rem !important;
+  }
+  .stats-content .bar-text {
+    font-size: 1.16rem !important;
+  }
+  .work-content .design-part, .work-content .front-end-part, .work-content .stem-part {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .contact-content .left-content .contact-info {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .contact-content .left-content .contact-info br {
+    display: block !important;
+  }
+  .contact-content .right-content {
+    margin: 4rem 0 7rem 0;
+  }
+  .contact-content .right-content .first-line {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .contact-content .icons {
+    margin-bottom: 5rem !important;
+  }
+}/*# sourceMappingURL=queries.css.map */
